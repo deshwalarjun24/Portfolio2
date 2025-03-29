@@ -188,14 +188,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const loadingPercentage = document.querySelector('.loading-percentage');
     const mainContent = document.querySelector('.game-container');
     
-    // Only show loading on index.html
-    if (!window.location.pathname.endsWith('index.html') && !window.location.pathname.endsWith('/')) {
+    // Check if not on index page/root
+    const isIndexPage = window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/') || window.location.pathname === '';
+    
+    if (!isIndexPage) {
         loadingScreen.style.display = 'none';
         mainContent.style.opacity = '1';
         return;
     }
     
-    // Always show loading screen when opening the portfolio
+    // Check if coming from an internal page (like projects.html)
+    if (document.referrer && document.referrer.includes(window.location.host)) {
+        loadingScreen.style.display = 'none';
+        mainContent.style.opacity = '1';
+        return;
+    }
+    
+    // Show loading screen for direct access or refresh
     mainContent.style.opacity = '0';
     
     let progress = 0;

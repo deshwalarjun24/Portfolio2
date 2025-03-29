@@ -45,24 +45,76 @@
 }
 
 .project-main-content {
-    display: grid;
-    grid-template-columns: 400px 1fr;
-    gap: 2rem;
-}
-
-.project-image-section {
     display: flex;
     flex-direction: column;
     gap: 2rem;
 }
 
+/* Top section with game image and QR code */
+.project-top-section {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 1.5rem;
+    position: relative;
+}
+
+.project-image-section {
+    position: relative;
+}
+
 .project-image-section img {
     width: 100%;
-    height: 300px;
+    height: 250px;
     object-fit: contain;
     background: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     border: 1px solid var(--primary-color);
+    padding: 1rem;
+}
+
+.qr-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    border: 1px solid var(--primary-color);
+    padding: 1rem;
+}
+
+.project-qr {
+    width: 80%;
+    max-width: 150px;
+    background: white;
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 255, 159, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.project-qr:hover {
+    transform: scale(1.1);
+}
+
+.qr-code {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Bottom section with game details and buttons */
+.project-bottom-section {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 1.5rem;
+    position: relative;
+}
+
+.project-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
     padding: 1rem;
 }
 
@@ -90,7 +142,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-bottom: 1rem;
+    margin-top: auto;
 }
 
 .tech-stack span {
@@ -125,12 +177,32 @@
 }
 
 @media (max-width: 768px) {
-    .project-main-content {
+    .project-top-section {
         grid-template-columns: 1fr;
     }
-
-    .project-image-section {
-        gap: 1.5rem;
+    
+    .project-bottom-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-buttons {
+        flex-direction: row;
+        justify-content: center;
+        order: 2;
+    }
+    
+    .qr-section {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .project-qr {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .project-image-section img {
+        height: 220px;
     }
 
     .project-details-section h3 {
@@ -148,12 +220,13 @@
         font-size: 2rem;
     }
 
-    .project-main-content {
-        padding: 1rem;
-    }
-
     .project-image-section img {
-        height: 200px;
+        height: 180px;
+    }
+    
+    .project-qr {
+        width: 100px;
+        height: 100px;
     }
 
     .project-details-section h3 {
