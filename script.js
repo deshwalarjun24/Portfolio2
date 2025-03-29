@@ -153,7 +153,7 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Updated WhatsApp function
+// Updated contact form function to redirect to LinkedIn message
 function sendToWhatsApp(event) {
     event.preventDefault();
     
@@ -168,14 +168,14 @@ function sendToWhatsApp(event) {
         return;
     }
     
-    // Create WhatsApp message with proper URL encoding
-    const whatsappMessage = encodeURIComponent(`Hello, I am ${name}\n\nEmail: ${email}\n\nMessage: ${message}`);
+    // Create formatted message for LinkedIn
+    const formattedMessage = encodeURIComponent(`Hello, I am ${name}\nEmail: ${email}\n\n${message}`);
     
-    // Create WhatsApp URL
-    const whatsappUrl = `https://wa.me/918595594188?text=${whatsappMessage}`;
+    // LinkedIn messaging URL with pre-filled message
+    const linkedInUrl = `https://www.linkedin.com/messaging/compose/?to=rahulwalia01&body=${formattedMessage}`;
     
-    // Open WhatsApp in new tab
-    window.open(whatsappUrl, '_blank');
+    // Open LinkedIn message page in new tab
+    window.open(linkedInUrl, '_blank');
     
     // Reset form
     document.getElementById('whatsappForm').reset();
