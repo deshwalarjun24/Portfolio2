@@ -188,18 +188,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const loadingPercentage = document.querySelector('.loading-percentage');
     const mainContent = document.querySelector('.game-container');
     
-    // Check if this is the first visit
-    const hasVisited = localStorage.getItem('hasVisitedPortfolio');
-    
-    // If not the first visit, hide loading screen immediately
-    if (hasVisited || !window.location.pathname.endsWith('index.html')) {
+    // Only show loading on index.html
+    if (!window.location.pathname.endsWith('index.html') && !window.location.pathname.endsWith('/')) {
         loadingScreen.style.display = 'none';
         mainContent.style.opacity = '1';
         return;
     }
     
-    // Set visited flag
-    localStorage.setItem('hasVisitedPortfolio', 'true');
+    // Always show loading screen when opening the portfolio
+    mainContent.style.opacity = '0';
     
     let progress = 0;
     const loadingDuration = 3000; // 3 seconds
