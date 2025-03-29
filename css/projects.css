@@ -114,6 +114,16 @@
 }
 
 /* Responsive Design */
+@media (max-width: 992px) {
+    .projects-showcase {
+        padding-top: 8rem;
+    }
+    
+    .projects-showcase .section-title {
+        margin-top: 1rem;
+    }
+}
+
 @media (max-width: 768px) {
     .project-main-content {
         grid-template-columns: 1fr;
@@ -130,7 +140,12 @@
 
 @media (max-width: 480px) {
     .projects-showcase {
-        padding: 4rem 1rem;
+        padding: 6rem 1rem 4rem 1rem;
+    }
+    
+    .projects-showcase .section-title {
+        margin-top: 0.5rem;
+        font-size: 2rem;
     }
 
     .project-main-content {
